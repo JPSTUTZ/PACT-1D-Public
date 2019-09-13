@@ -1,7 +1,7 @@
  %--------------------------------------------------------------------------------------
- % Platform for Atmospehric Chemistry and Transport in 1D 
+ % Platform for Atmospheric Chemistry and Transport in 1D 
  %
- % One dimensional model model to calculate atmopsheric chemistry & vertical transport 
+ % One dimensional model to calculate atmopsheric chemistry & vertical transport 
  % 
  % Developed by:
  % 
