@@ -1,0 +1,25 @@
+##please start all comment lines with this character #
+##non reactive uptake to aerosols
+##column 1 - species,   column 2 empty, column 3 uptake probability (alpha),  column 4 - reaction index (this speeds things up in kpp)
+##note make sure the species and reaciton index are consistant in the mech.eqn file, this is not checked in the code
+##species           empty         alpha            reaciton index
+HNO3                -             0.2              1
+HNO4                -             0.01             2
+HO2                 -             0.1              3
+HONO                -             1.0E-4           4
+N2O5                -             0.2              5
+NO2                 -             2.0E-5           6
+NO3                 -             2.0E-3           7
+O3                  -             5.0E-5           8
+HCl                 -             5.0E-5           9 
+HOCl                -             5.0E-5           10 
+
+##Surface reactions on aerosols
+##column 1 - gas phase reactant, column 2 product, column 3 - reaction probability gamma, column 4 - surface reaction index
+##reactant           product       gamma           reaction index
+ClONO2               Cl2+HNO3a     0.1             11   
+ClONO2               HOCl+HNO3a    0.1             12   
+N2O5                 ClNO2         0.2             13
+HO                   Cl2           0.2             14 
+
+
