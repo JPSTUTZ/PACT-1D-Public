@@ -1,3 +1,22 @@
+%--------------------------------------------------------------------------------------
+ % Output Plotting Routines for
+ % Platform for Atmospheric Chemistry and Transport in 1D 
+ %
+ % 
+ % Developed by:
+ % 
+ % Katie Tuite: ktuite@ucla.edu
+ % Jochen Stutz: jochen@atmos.ucla.edu
+ % Jennie L. Thomas: jennie.thomas@univ-grenoble-alpes.fr
+ %
+ % Version 1.0
+ % Last updated: September 13, 2019
+ %
+ % Comment out routines you don't want to use
+ % Specific Routines and the output PDF's are in indivual folders
+ % 
+ % --------------------------------------------------------------------------------------
+
 clear all
 close all
 
@@ -8,28 +27,28 @@ close all
 % Name has to have leading and trailing spaces !!!!!
 % Plots are sorted according to decending reacgtion rate maximum
 
-% cd('RxnRate_3D');
-% Plot3D_RXN(' HCHO ','*HCHO');
-% cd('../');
+cd('RxnRate_3D');
+Plot3D_RXN(' HCHO ','*HCHO');
+cd('../');
 
 
 %---------------------------------------------------------------------
 % Plot unsorted Species above a threshold of 100 molec per cc
 % PDFs in directory SpecAll_3D 
 
-% cd('SpecAll_3D');
-% run('plot_SpecAll_3D_V2.m');
-% cd('../');
+cd('SpecAll_3D');
+run('plot_SpecAll_3D_V2.m');
+cd('../');
 
 
 %---------------------------------------------------------------------
 % Plot unsorted Species above a threshold of 100 molec per cc
 % PDFs in directory SpecAll_3D 
 
-% plot_lev = [5 7 9 11 14];     % array with altitudes to be plotted
-% cd('SpecAll_alt');
-% PlotTraceAll(plot_lev);
-% cd('../');
+plot_lev = [5 7 9 11 14];     % array with altitudes to be plotted
+cd('SpecAll_alt');
+PlotTraceAll(plot_lev);
+cd('../');
 
 
 % %---------------------------------------------------------------------
@@ -67,8 +86,8 @@ cd('../');
 % %------------------------------------------------------------
 % 3D plot of all emissions above a certain threshold
 
-% cd('EmAll_3D');
-% run('plot_EmAll_3D_V2.m');
-% cd('../');
+cd('EmAll_3D');
+run('plot_EmAll_3D_V2.m');
+cd('../');
 
 
