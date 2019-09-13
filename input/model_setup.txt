@@ -5,20 +5,20 @@
 1      %run_vert_diff on=1 or off=0
 1      %addemissions  on=1 or off=0 
 1      %xhet          on=1 or off=0 
-0      %xIod          on=1 or off=0, with or without iodine chemistry 
+0      %xIod          on=1 or off=0, OPTION NOT WORKING FOR NOW 
 1      %xCl          on=1 or off=0, with or without iodine chemistry 
-0      %xBr          on=1 or off=0, with or without iodine chemistry 
+0      %xBr          on=1 or off=0, OPTION NOT WORKING FOR NOW 
 300    %chemistry timestep in seconds
 10     %internal kpp timestep - (smaller than dt_chem) seconds, must follow dt_chem = n*dt_kpp, where n is an integer
-500    %n_step_diff - number of diffusion timesteps per chemistry timestep
-1     %output write frequency, write every X chemistry timesteps
+50     %n_step_diff - number of diffusion timesteps per chemistry timestep
+1      %output write frequency, write every X chemistry timesteps
 'output_file_comment - Model start time: 25 May 2010 - 9:00 LT' 
 'output_file_created_by - Jennie Thomas - jennie.thomas@latmos.ipsl.fr' 
 
 #NOTEs
-#1. - surface produciton of iodine, HONO, or other species are controlled in - model_toolbox/diffusion_1d.m and model_toolbox/surface_source.m
+#1. - if you would like surface production of species at the ground this can be set in - model_toolbox/diffusion_1d.m and model_toolbox/surface_source.m
 #update this for your case!
 
-#2. We recommend a grid betweeen about 10-20 meters that is log scale with decreasing box sizes clsoe to the ground, with the lowest model layer on the order of the millemeter scale, the scale appropriate for molecular diffusion.  Between your lowest available Kz and the ground, we recommend you inpterpolate such that tfor the lowest model level Kz = 0.  We calculate online the molecular diffusifity and use it to transport gases into the lowest model level
+#2. We recommend a grid betweeen about 10-20 meters that is log scale with decreasing box sizes close to the ground, with the lowest model layer on the order of the millemeter scale, the scale appropriate for molecular diffusion.  Between your lowest available Kz and the ground.  We calculate online the molecular diffusifity and use it to transport gases and add it to Kz to treat vertical mixing. 
 
 
