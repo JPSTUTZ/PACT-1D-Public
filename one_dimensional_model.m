@@ -1,5 +1,18 @@
+ %--------------------------------------------------------------------------------------
+ % Platform for Atmospehric Chemistry and Transport in 1D 
+ %
  % One dimensional model model to calculate atmopsheric chemistry & vertical transport 
- % Code written by Jennie L. Thomas - send questions to jennie.thomas@univ-grenoble-alpes.fr
+ % 
+ % Developed by:
+ % 
+ % Jennie L. Thomas: jennie.thomas@univ-grenoble-alpes.fr
+ % Katie Tuite: ktuite@ucla.edu
+ % Jochen Stutz: jochen@atmos.ucla.edu
+ %
+ % Version 1.0
+ % Last updated: September 13, 2019
+ %
+ % --------------------------------------------------------------------------------------
    close all;
    clear all;
    
