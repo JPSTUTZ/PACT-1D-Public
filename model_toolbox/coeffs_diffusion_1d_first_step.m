@@ -18,7 +18,6 @@ density_correction = 1+(rho(2)-rho(1))/rho(1)/(BOXCH(2)-BOXCH(1))*(BOX_WALL(1)-B
 dp(1) = Kz(1)*density_correction/(BOXCH(2)-BOXCH(1))/BOX_WALL(1) * dt_diff;
 dm(1) = 0;
 
-%JPS 4-16-19 this seems to be faster than indexed vector multiplication
 
 for k=2:NLEV-1
     density_correction = 1+(rho(k+1)-rho(k))/rho(k)/(BOXCH(k+1)-BOXCH(k))*(BOX_WALL(k)-BOXCH(k));
@@ -48,7 +47,8 @@ c_coeffs = -alpha*dp;
 
 
 % correction for deposition velocity
-b_coeffs(1) = b_coeffs(1) + alpha*v_surf_t*dt_diff/(BOX_WALL(2)-BOX_WALL(1));
+%b_coeffs(1) = b_coeffs(1) + alpha*v_surf_t*dt_diff/(BOX_WALL(2)-BOX_WALL(1));
+b_coeffs(1) = b_coeffs(1) + alpha*v_surf_t*dt_diff/(BOX_WALL(1));
 
 
 %disp(dp);

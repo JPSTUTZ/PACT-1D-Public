@@ -1,4 +1,4 @@
-function write_netcdf_output(model_path,nlev,t,spec_conc,spec_conc_fixed,temperature, press, rh, rates,rate_constants,VT,depo, surf_source, emissions, Times, DateStrLen)
+function write_netcdf_output(model_path,nlev,t,spec_conc,spec_conc_fixed,temperature, press, rh, rates,rate_constants,VT,depo, surf_source, total_loss_to_ground, emissions, Times, DateStrLen)
 
 %add model parameters
 mech_Parameters;
@@ -142,6 +142,19 @@ for j=1:NVAR
   tmp = squeeze(surf_source(ind,:,t+1));
   %size(tmp)
   netcdf.putVar(ncid,varid,[0,t],[nlev,1],tmp);
+end
+
+%add total loss to ground term
+for j=1:NVAR
+  %size(spec_conc)
+  %j
+  %disp(spec_names{j});
+%  ind = get_ind(spec_names{j});        % Replaced 8/11/17 JPS
+  ind = eval(['ind_' spec_names{j}]);
+  varid = netcdf.inqVarID(ncid,['loss_' spec_names{j}]);
+  tmp = squeeze(total_loss_to_ground(ind,t+1));
+  %size(tmp)
+  netcdf.putVar(ncid,varid,[t],[1],tmp);
 end
 netcdf.close(ncid)
 

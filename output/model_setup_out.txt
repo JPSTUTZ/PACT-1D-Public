@@ -8,7 +8,7 @@ xCl    	 1
 xBr    	 0
 dt_chem  	 300
 dt_kpp  	 10
-n_step_diff  	 500
+n_step_diff  	 50
 Write Repetition  	 1
 output_file_comment  	 'output_file_comment - Model start time: 25 May 2010 - 9:00 LT' 
 output_file_created_by 	 'output_file_created_by - Jennie Thomas - jennie.thomas@latmos.ipsl.fr' 

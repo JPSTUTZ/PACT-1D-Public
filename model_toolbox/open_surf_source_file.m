@@ -1,4 +1,4 @@
-function [  ] = open_surf_source_file( model_path, Times, nlev, ntim, DateStrLen, surf_source, BOX_WALL, BOXCH, output_file_comment, output_file_created_by)
+function [  ] = open_surf_source_file( model_path, Times, nlev, ntim, DateStrLen, surf_source, total_loss_to_ground, BOX_WALL, BOXCH, output_file_comment, output_file_created_by)
 %open a file for writing out the reaction rates
 
 %global fill value number set in the initialization routines
@@ -50,6 +50,17 @@ for j = 1:NVAR
   netcdf.putAtt(ncid,varid(j),'_FillValue',fill_value_netcdf)
 end
 
+emi_name={''};
+spec_names = get_spec_names( model_path );
+%write reaction names and numbers to file, make space for rates
+for j = 1:NVAR
+  emi_name{j}=strrep(spec_names{j},spec_names{j},['loss_' spec_names{j}] );
+  varid(j)  = netcdf.defVar(ncid,emi_name{j},'double',[time_dimid]); 
+  netcdf.putAtt(ncid,varid(j),'units','molec cm-2')
+  netcdf.putAtt(ncid,varid(j),'long_name',['total loss to ground for - ' emi_name{j}])
+  netcdf.putAtt(ncid,varid(j),'_FillValue',fill_value_netcdf)
+end
+
 netcdf.endDef(ncid)
 %done defining file format
 
@@ -62,10 +73,10 @@ netcdf.putVar(ncid,varid_boxch,[0],[nlev],BOXCH);
 %Time string for each value
 netcdf.putVar(ncid,varid_timeStr,[0, 0],[DateStrLen, 1],Times(1,:)');
 
-%add reaction rates
+%add values
 for j=1:NVAR
-    tmp = squeeze(surf_source(j,:,1));
-    netcdf.putVar(ncid,varid(j),[0,0],[nlev,1],tmp);
+    tmp = squeeze(surf_source(j,1));
+    netcdf.putVar(ncid,varid(j),[0],[1],tmp);
     clearvars tmp;
 end
 

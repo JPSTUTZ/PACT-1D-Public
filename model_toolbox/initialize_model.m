@@ -66,13 +66,12 @@
    spec_fixed            = zeros(NFIX,NLEV,NTIM_CHEM);                     %fixed concentraiton species (assume same concentration in all levels at all times
    spec_fixed(:,:,:)     = fill_value_netcdf;
    VT                    = zeros(NVAR,NLEV,NTIM_CHEM);                     %vertical transport rates
-   VT(:,:,:)             = fill_value_netcdf;
+   %VT(:,:,:)             = fill_value_netcdf;
    VT(:,:,1)             = 0.;
    depo                  = zeros(NVAR,NTIM_CHEM);                          %deposition rate to surface
-   depo(:,:)             = fill_value_netcdf;  
+   %depo(:,:)             = fill_value_netcdf;  
    depo(:,1)             = 0.;
    total_loss_to_ground     = zeros(NVAR,1);                                 %number of molecules lost to the surface - cumulative over the model run
-   total_loss_to_ground(:)  = fill_value_netcdf;  
    total_loss_to_ground(1)  = 0.;
    rates                 = zeros(NREACT,NLEV,NTIM_CHEM);                   %rates from solving the chemistry rates
    rates(:,:,:)          = fill_value_netcdf;
@@ -84,7 +83,7 @@
    emissions(:,:,:)      = fill_value_netcdf;
    emissions(:,:,1)      = 0.;
    surf_source           = zeros(NVAR,NLEV,NTIM_CHEM);                     %surface source - calculated online of HONO and other species 
-   surf_source(:,:,:)      = fill_value_netcdf;
+%   surf_source(:,:,:)      = fill_value_netcdf;
    surf_source(:,:,1) = 0.;
    
 %    %get species names

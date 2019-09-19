@@ -1,6 +1,6 @@
 function open_netcdf_output(model_path,nlev,ntim,Times,BOX_WALL,BOXCH,...
     spec_conc,spec_conc_fixed,rates,VT,depo,DateStrLen,...
-    temperature,pressure,relative_humidity, rate_constants, emissions, surf_source, output_file_comment, output_file_created_by)
+    temperature,pressure,relative_humidity, rate_constants, emissions, surf_source, total_loss_to_ground, output_file_comment, output_file_created_by)
 
 %open netcdf files, write the initial values there
 
@@ -17,4 +17,4 @@ open_vertical_transport_file (model_path, Times, nlev, ntim, DateStrLen, VT, BOX
  
 open_emission_file( model_path, Times, nlev, ntim, DateStrLen, emissions, BOX_WALL, BOXCH, output_file_comment, output_file_created_by)
 
-open_surf_source_file( model_path, Times, nlev, ntim, DateStrLen, surf_source, BOX_WALL, BOXCH, output_file_comment, output_file_created_by)
+open_surf_source_file( model_path, Times, nlev, ntim, DateStrLen, surf_source, total_loss_to_ground, BOX_WALL, BOXCH, output_file_comment, output_file_created_by)

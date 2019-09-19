@@ -3,7 +3,7 @@ function [d_coeffs] = coeffs_diffusion_1d(spec_t0,beta,dp,dm,NLEV,v_surf_t, dt_d
 d_coeffs = zeros(NLEV,1);
 
 %special case for the d_coeffs for k=1 
-d_coeffs(1) = (1. - beta*dp(1) - beta*v_surf_t*dt_diff/(BOX_WALL(2)-BOX_WALL(1))  )*spec_t0(1) + beta*dp(1)*spec_t0(2);
+d_coeffs(1) = (1. - beta*dp(1) - beta*v_surf_t*dt_diff/(BOX_WALL(1))  )*spec_t0(1) + beta*dp(1)*spec_t0(2);
 
 %calcuate d_coeffs
 for k=2:NLEV-1
